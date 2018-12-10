@@ -17,4 +17,27 @@ public class Student extends Uzytkownik {
 	public void PoprosOUtworzenieKursu() {
 	}
 
+	public List<Integer> getIdKierunkow() {
+		return idKierunkow;
+	}
+
+	public void setIdKierunkow(List<Integer> idKierunkow) {
+		this.idKierunkow = idKierunkow;
+	}
+
+	public int getIdSemestru() {
+		return idSemestru;
+	}
+
+	public void setIdSemestru(int idSemestru) {
+		this.idSemestru = idSemestru;
+	}
+
+	public TypStudiow getTypStudiow() {
+		return typStudiow;
+	}
+
+	public void setTypStudiow(TypStudiow typStudiow) {
+		this.typStudiow = typStudiow;
+	}
 }

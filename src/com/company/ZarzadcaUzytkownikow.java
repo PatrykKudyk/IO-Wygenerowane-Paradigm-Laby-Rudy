@@ -19,4 +19,11 @@ public class ZarzadcaUzytkownikow {
 		return lista;
 	}
 
+	public List<List<PrawoDoZapisu>> getListaListPrawDoZapisow() {
+		return ListaListPrawDoZapisow;
+	}
+
+	public void setListaListPrawDoZapisow(List<List<PrawoDoZapisu>> listaListPrawDoZapisow) {
+		ListaListPrawDoZapisow = listaListPrawDoZapisow;
+	}
 }

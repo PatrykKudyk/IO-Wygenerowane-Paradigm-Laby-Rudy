@@ -43,4 +43,11 @@ public class Aplikacja {
 		return mapa;
 	}
 
+	public List<List<GrupaZapisowa>> getListaListGrupZapisowych() {
+		return ListaListGrupZapisowych;
+	}
+
+	public void setListaListGrupZapisowych(List<List<GrupaZapisowa>> listaListGrupZapisowych) {
+		ListaListGrupZapisowych = listaListGrupZapisowych;
+	}
 }
