@@ -1,6 +1,8 @@
+package com.company;
+
 public enum Uprawnienia {
 	Administrator,
 	Planista,
-	Prowadz¹cy,
-	Student
+	Prowadzacy,
+	Student;
 }

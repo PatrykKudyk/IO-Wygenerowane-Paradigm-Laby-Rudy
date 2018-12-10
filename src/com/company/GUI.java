@@ -1,47 +1,29 @@
+package com.company;
+
 public class GUI {
 
-	public void WyœwietlGlowneMenu() {
-		// TODO - implement GUI.WyœwietlGlowneMenu
-		throw new UnsupportedOperationException();
+	public void WyswietlGlowneMenu() {
 	}
 
-	public void WyœwietlListeKursow() {
-		// TODO - implement GUI.WyœwietlListeKursow
-		throw new UnsupportedOperationException();
+	public void WyswietlListeKursow() {
 	}
 
-	public void WyœwietlListeGrupZapisowych() {
-		// TODO - implement GUI.WyœwietlListeGrupZapisowych
-		throw new UnsupportedOperationException();
+	public void WyswietlListeGrupZapisowych() {
 	}
 
-	/**
-	 * 
-	 * @param String
-	 */
-	public void WyœwietlKomunikat(komunikat String) {
-		// TODO - implement GUI.WyœwietlKomunikat
-		throw new UnsupportedOperationException();
+	public void WyswietlKomunikat(String komunikat) {
 	}
 
-	public void WyœwietlMenuLogowania() {
-		// TODO - implement GUI.WyœwietlMenuLogowania
-		throw new UnsupportedOperationException();
+	public void WyswietlMenuLogowania() {
 	}
 
-	public void WyœwietlListêStudentów() {
-		// TODO - implement GUI.WyœwietlListêStudentów
-		throw new UnsupportedOperationException();
+	public void WyswietlListeStudentow() {
 	}
 
-	public void WyœwietlOceny() {
-		// TODO - implement GUI.WyœwietlOceny
-		throw new UnsupportedOperationException();
+	public void WyswietlOceny() {
 	}
 
-	public void WyœwietlPlan() {
-		// TODO - implement GUI.WyœwietlPlan
-		throw new UnsupportedOperationException();
+	public void WyswietlPlan() {
 	}
 
 }

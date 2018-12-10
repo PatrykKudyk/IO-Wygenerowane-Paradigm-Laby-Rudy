@@ -1,3 +1,5 @@
+package com.company;
+
 public class Kurs {
 
 	private int idKursu;
@@ -5,12 +7,12 @@ public class Kurs {
 	private int idProwadzacego;
 	private int sala;
 	private String budynek;
-	private GodzinaZajêæ godzina;
+	private GodzinaZajec godzina;
 	private int czasTrwania;
 	private DzienTygodnia dzien;
-	private PrzystoscTygodnia przystosc;
+	private ParzystoscTygodnia przystosc;
 	private TypKursu typ;
 	private int idGrupyKursow;
-	private int iloœæECTS;
+	private int iloscECTS;
 
 }

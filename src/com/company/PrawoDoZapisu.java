@@ -1,6 +1,10 @@
+package com.company;
+
+import java.util.List;
+
 public class PrawoDoZapisu {
 
 	private List<Integer> idGrupZapisowych;
-	private int idKierunków;
+	private int idKierunkow;
 
 }

@@ -1,4 +1,6 @@
-public class GodzinaZajêæ {
+package com.company;
+
+public class GodzinaZajec {
 
 	private int idGodzinyZajec;
 	private int godzina;

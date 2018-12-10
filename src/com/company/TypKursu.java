@@ -1,7 +1,9 @@
+package com.company;
+
 public enum TypKursu {
-	Wyk³ad,
-	Æwiczenia,
+	Wyklad,
+	Cwiczenia,
 	Laboratoria,
 	Projekt,
-	Seminaria
+	Seminaria;
 }

@@ -1,35 +1,46 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Aplikacja {
 
 	private List<List<GrupaZapisowa>> ListaListGrupZapisowych;
 
-	public bool SprawdzCzyPuste() {
-		// TODO - implement Aplikacja.SprawdzCzyPuste
-		throw new UnsupportedOperationException();
+	public boolean SprawdzCzyPuste() {
+
+		return false;
 	}
 
-	public bool SprawdzCzyZapisanyNaWszystko() {
-		// TODO - implement Aplikacja.SprawdzCzyZapisanyNaWszystko
-		throw new UnsupportedOperationException();
+	public boolean SprawdzCzyZapisanyNaWszystko() {
+
+		return false;
 	}
 
 	public Kurs WybierzKurs() {
-		// TODO - implement Aplikacja.WybierzKurs
-		throw new UnsupportedOperationException();
+		Kurs kurs = new Kurs();
+
+		return kurs;
 	}
 
 	public List<GrupaZapisowa> PobierzListaGrupZapisowych() {
-		// TODO - implement Aplikacja.PobierzListaGrupZapisowych
-		throw new UnsupportedOperationException();
+		List<GrupaZapisowa> lista = new ArrayList<GrupaZapisowa>();
+
+		return lista;
 	}
 
 	public List<Kurs> PobierzListeKursow() {
-		// TODO - implement Aplikacja.PobierzListeKursow
-		throw new UnsupportedOperationException();
+		List<Kurs> lista = new ArrayList<Kurs>();
+
+		return lista;
 	}
 
 	public Map<Kurs, Integer> PobierzListeOcen() {
-		// TODO - implement Aplikacja.PobierzListeOcen
-		throw new UnsupportedOperationException();
+		Map<Kurs, Integer> mapa = new HashMap<Kurs, Integer>();
+
+		return mapa;
 	}
 
 }
