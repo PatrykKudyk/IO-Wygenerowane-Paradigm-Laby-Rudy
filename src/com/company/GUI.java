@@ -1,7 +1,5 @@
 package com.company;
 
-import sun.awt.geom.AreaOp;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -68,16 +66,21 @@ public class GUI {
 	}
 
 	public void WyswietlMenuLogowania() {
-
+		System.out.println("Podaj dane logowania");
+		System.out.println("Login: ");
 	}
 
-	public void WyswietlListeStudentow() {
+	public void WyswietlListeStudentow(List <Student> lista) {
+		System.out.println("Lista studentow: ");
+		for(int i = 0; i < lista.size(); i++)
+			System.out.println(i + ") - " + lista.get(i).getImie()+ lista.get(i).getNazwisko());
 	}
 
 	public void WyswietlOceny() {
 	}
 
-	public void WyswietlPlan() {
+	public void WyswietlPlan(List<Kurs> lista) {
+
 	}
 
 }
