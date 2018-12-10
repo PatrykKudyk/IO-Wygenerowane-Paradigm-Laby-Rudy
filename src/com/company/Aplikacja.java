@@ -9,6 +9,11 @@ public class Aplikacja {
 
 	private List<List<GrupaZapisowa>> ListaListGrupZapisowych;
 
+	public void StartProgramu(){
+		GUI gui = new GUI();
+		gui.WyswietlMenuLogowania();
+	}
+
 	public boolean SprawdzCzyPuste() {
 
 		return false;

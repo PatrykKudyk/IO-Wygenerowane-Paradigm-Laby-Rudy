@@ -7,30 +7,54 @@ import java.util.Scanner;
 
 public class GUI {
 
-	public void WyswietlGlowneMenu(Uzytkownik uzytkownik) {
+	public void WyswietlGlowneMenu(Uprawnienia uprawnienia, int idUzytkownika) {
 		Scanner skaner = new Scanner(System.in);
 		System.out.println("\t\tMenu Główne Programu");
 		System.out.println("\nCo chciałbyś teraz zrobić?");
-		if( == Uprawnienia.Student){
-			System.out.println("[1] - Wyświetlić Listę Kursów");
+		if(uprawnienia == Uprawnienia.Student){
+			System.out.println("[1] - Zapisz na kursy");
 			System.out.println("[2] - Wyświetlić Listę Grup Zapisowych");
 			System.out.println("[3] - Wyświetlić Oceny");
 			System.out.println("[4] - Wyświetlić Plan");
 			int wybor = skaner.nextInt();
 			switch(wybor){
 				case 1:
-					WyswietlListeKursow();
+					WyswietlListeKursow(idUzytkownika);
+					break;
+				case 2:
+					ZarzadcaKursow zarzadcaKursow = new ZarzadcaKursow();
+					WyswietlListeGrupZapisowych(zarzadcaKursow.PobierzListeGrupZapisowych());
+					break;
+				case 3:
+					WyswietlOceny();
+					break;
+				case 4:
+					WyswietlPlan();
+					break;
+					default:
+						break;
 			}
 		}
 		else if(uprawnienia == Uprawnienia.Prowadzacy){
 			System.out.println("[1] - Wyświetlić Listę Studentów");
-			System.out.println("[4] - Wyświetlić Plan");
+			System.out.println("[2] - Wyświetlić Plan");
+			int wybor = skaner.nextInt();
+			switch(wybor){
+				case 1:
+					WyswietlListeStudentow();
+					break;
+				case 2:
+					WyswietlPlan();
+					break;
+					default:
+						break;
+			}
 		}
 
 
 	}
 
-	public void WyswietlListeKursow() {
+	public void WyswietlListeKursow(int idUzytkownika) {
 	}
 
 	public void WyswietlListeGrupZapisowych(List<GrupaZapisowa> lista) {
@@ -44,6 +68,7 @@ public class GUI {
 	}
 
 	public void WyswietlMenuLogowania() {
+
 	}
 
 	public void WyswietlListeStudentow() {
