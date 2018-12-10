@@ -5,25 +5,29 @@ import java.util.List;
 
 public class ZarzadcaUzytkownikow {
 
-	private List<List<PrawoDoZapisu>> ListaListPrawDoZapisow;
+    private List<List<PrawoDoZapisu>> ListaListPrawDoZapisow;
 
-	public List<GrupaZapisowa> SprawdzGrupyPrzypisane() {
-		List<GrupaZapisowa> lista = new ArrayList<GrupaZapisowa>();
+    public List<GrupaZapisowa> SprawdzGrupyPrzypisane(int IDStudenta) {
+        ZarzadcaKursow zarzadcaKursow = new ZarzadcaKursow();
+        List<GrupaZapisowa> lista = zarzadcaKursow.PobierzListeGrupZapisowych(IDStudenta);
+        //pobranie grup zapisowych dla studenta o id = IDSturenta
 
-		return lista;
-	}
+        return lista;
+    }
 
-	public List<PrawoDoZapisu> SprawdzPrawaDoZapisow(int IDStudenta) {
-		List<PrawoDoZapisu> lista = new ArrayList<PrawoDoZapisu>();
+    public List<PrawoDoZapisu> SprawdzPrawaDoZapisow(int IDStudenta) {
+        List<PrawoDoZapisu> lista = new ArrayList<PrawoDoZapisu>();
 
-		return lista;
-	}
+        lista.add(new PrawoDoZapisu(1));
 
-	public List<List<PrawoDoZapisu>> getListaListPrawDoZapisow() {
-		return ListaListPrawDoZapisow;
-	}
+        return lista;
+    }
 
-	public void setListaListPrawDoZapisow(List<List<PrawoDoZapisu>> listaListPrawDoZapisow) {
-		ListaListPrawDoZapisow = listaListPrawDoZapisow;
-	}
+    public List<List<PrawoDoZapisu>> getListaListPrawDoZapisow() {
+        return ListaListPrawDoZapisow;
+    }
+
+    public void setListaListPrawDoZapisow(List<List<PrawoDoZapisu>> listaListPrawDoZapisow) {
+        ListaListPrawDoZapisow = listaListPrawDoZapisow;
+    }
 }

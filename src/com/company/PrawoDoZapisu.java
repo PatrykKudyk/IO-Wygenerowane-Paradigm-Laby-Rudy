@@ -4,22 +4,18 @@ import java.util.List;
 
 public class PrawoDoZapisu {
 
-	private List<Integer> idGrupZapisowych;
-	private int idKierunkow;
+	private int idGrupZapisowych;
 
-	public List<Integer> getIdGrupZapisowych() {
-		return idGrupZapisowych;
-	}
-
-	public void setIdGrupZapisowych(List<Integer> idGrupZapisowych) {
+	public PrawoDoZapisu(int idGrupZapisowych) {
 		this.idGrupZapisowych = idGrupZapisowych;
 	}
 
-	public int getIdKierunkow() {
-		return idKierunkow;
+	public int getIdGrupZapisowych() {
+		return idGrupZapisowych;
 	}
 
-	public void setIdKierunkow(int idKierunkow) {
-		this.idKierunkow = idKierunkow;
+	public void setIdGrupZapisowych(int idGrupZapisowych) {
+		this.idGrupZapisowych = idGrupZapisowych;
 	}
+
 }

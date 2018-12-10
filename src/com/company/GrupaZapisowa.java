@@ -7,6 +7,12 @@ public class GrupaZapisowa {
 	private String nazwaGrupy;
 	private List<Integer> listaIDKursow;
 
+	public GrupaZapisowa(int idGrupyZapisowej, String nazwaGrupy, List<Integer> listaIDKursow) {
+		this.idGrupyZapisowej = idGrupyZapisowej;
+		this.nazwaGrupy = nazwaGrupy;
+		this.listaIDKursow = listaIDKursow;
+	}
+
 	public int getIdGrupyZapisowej() {
 		return idGrupyZapisowej;
 	}

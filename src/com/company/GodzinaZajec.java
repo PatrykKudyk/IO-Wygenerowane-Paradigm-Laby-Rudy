@@ -6,6 +6,19 @@ public class GodzinaZajec {
 	private int godzina;
 	private int minuta;
 
+	public GodzinaZajec(int godzina, int minuta) {
+		this.godzina = godzina;
+		this.minuta = minuta;
+	}
+
+	@Override
+	public String toString() {
+		return "GodzinaZajec{" +
+				"godzina=" + godzina +
+				", minuta=" + minuta +
+				'}';
+	}
+
 	public int getIdGodzinyZajec() {
 		return idGodzinyZajec;
 	}

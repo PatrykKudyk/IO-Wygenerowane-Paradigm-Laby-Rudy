@@ -8,6 +8,17 @@ public class Student extends Uzytkownik {
 	private int idSemestru;
 	private TypStudiow typStudiow;
 
+	public Student() {
+
+	}
+
+	public Student(List<Integer> idKierunkow, int idSemestru, TypStudiow typStudiow, int idStudenta) {
+
+		this.idKierunkow = idKierunkow;
+		this.idSemestru = idSemestru;
+		this.typStudiow = typStudiow;
+	}
+
 	public void ZapisNaKursy() {
 	}
 
