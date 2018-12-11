@@ -7,12 +7,9 @@ public class ZarzadcaUzytkownikow {
 
     private List<List<PrawoDoZapisu>> ListaListPrawDoZapisow;
 
-    public List<GrupaZapisowa> SprawdzGrupyPrzypisane(int IDStudenta) {
-        ZarzadcaKursow zarzadcaKursow = new ZarzadcaKursow();
-        List<GrupaZapisowa> lista = zarzadcaKursow.PobierzListeGrupZapisowych(IDStudenta);
+    public List<GrupaZapisowa> SprawdzGrupyPrzypisane(int IDStudenta, ZarzadcaKursow zarzadcaKursow) {
         //pobranie grup zapisowych dla studenta o id = IDSturenta
-
-        return lista;
+        return zarzadcaKursow.PobierzListeGrupZapisowych(IDStudenta);
     }
 
     public List<PrawoDoZapisu> SprawdzPrawaDoZapisow(int IDStudenta) {

@@ -7,10 +7,14 @@ public class Aplikacja {
     private List<List<GrupaZapisowa>> ListaListGrupZapisowych;
     private GUI gui;
     private Student student;
+    private ZarzadcaKursow zarzadcaKursow;
+    private ZarzadcaUzytkownikow zarzadcaUzytkownikow;
 
     public Aplikacja() {
         this.gui = new GUI();
         this.student = new Student(new ArrayList<Integer>(), 1, TypStudiow.Inzynierskie, 1);
+        this.zarzadcaKursow = new ZarzadcaKursow();
+        this.zarzadcaUzytkownikow = new ZarzadcaUzytkownikow();
     }
 
     public void StartProgramu() {
@@ -20,50 +24,62 @@ public class Aplikacja {
         nazwa = input.nextLine();
         System.out.print("Wprowadz haslo dla " + nazwa + ": ");
         haslo = input.nextLine();
-        if (nazwa.equals("a") && haslo.equals("a")) {
-            gui.WyswietlGlowneMenu(Uprawnienia.Student);
-            int wybor = input.nextInt();
-            //  while (!input.hasNextInt())
-            //      input.next();
-            System.out.println(wybor);
-            switch (wybor) {
-                case 1:
-                    ZapisyNaKurs();
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                default:
-                    break;
-            }
-        } else if (nazwa.equals("b") && haslo.equals("b")) {
-            gui.WyswietlGlowneMenu(Uprawnienia.Prowadzacy);
-            int wybor = input.nextInt();
-            switch (wybor) {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
-        } else if (nazwa.equals("c") && haslo.equals("c")) {
-            gui.WyswietlGlowneMenu(Uprawnienia.Planista);
-            int wybor = input.nextInt();
-            switch (wybor) {
-                case 1:
-                    ModyfikacjaBazyKursow();
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
-        } else
-            gui.WyswietlKomunikat("Kombinacja nieprawidłowa!");
+        int warunekPetli = 1;
+        do {
+            if (nazwa.equals("a") && haslo.equals("a")) {
+                gui.WyswietlGlowneMenu(Uprawnienia.Student);
+                int wybor = input.nextInt();
+                //  while (!input.hasNextInt())
+                //      input.next();
+                System.out.println(wybor);
+                switch (wybor) {
+                    case 1:
+                        ZapisyNaKurs();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        gui.WyswietlPlan(zarzadcaKursow.ZwrocListeKursowStudenta(student.getIdUzytkownika()));
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+            } else if (nazwa.equals("b") && haslo.equals("b")) {
+                gui.WyswietlGlowneMenu(Uprawnienia.Prowadzacy);
+                int wybor = input.nextInt();
+                switch (wybor) {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+            } else if (nazwa.equals("c") && haslo.equals("c")) {
+                gui.WyswietlGlowneMenu(Uprawnienia.Planista);
+                int wybor = input.nextInt();
+                switch (wybor) {
+                    case 1:
+                        ModyfikacjaBazyKursow();
+                        break;
+                    case 2:
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+            } else
+                gui.WyswietlKomunikat("Kombinacja nieprawidłowa!");
+            gui.WyswietlKomunikat("Jesli chcesz skonczyc dzialanie programu wpisz 0.");
+            warunekPetli = input.nextInt();
+        } while(warunekPetli != 0);
     }
 
     private void ZapisyNaKurs() {
@@ -79,7 +95,6 @@ public class Aplikacja {
     }
 
     private void WyborKursow(GrupaZapisowa grupa) {
-        ZarzadcaKursow zarzadcaKursow = new ZarzadcaKursow();
         List<Kurs> listaKursow = zarzadcaKursow.PobierzKursyZGrupy(grupa);
         gui.WyswietlListeKursow(listaKursow);
         System.out.println("\nWybierz kurs, na który chcesz się zapisać: ");
@@ -96,8 +111,6 @@ public class Aplikacja {
     private void ZapiszNaKurs(Kurs kurs) {
         //No i tutaj magicznie w bazie danych jest to uaktualniane oraz następuje
         //sprawdzenie, czy na dany kurs znajdują się wolne miejsca
-
-        ZarzadcaKursow zarzadcaKursow = new ZarzadcaKursow();
         if (!zarzadcaKursow.SprawdzCzyZapisanyJuzNaTenKurs(kurs, student.getIdUzytkownika())) {
             if (zarzadcaKursow.SprawdzDostepnoscMiejsc(kurs)) {
                 zarzadcaKursow.DodajDoKursu(kurs, student.getIdUzytkownika());
@@ -112,9 +125,7 @@ public class Aplikacja {
     }
 
     private List<GrupaZapisowa> ZwrocGrupy(int idStudenta) {
-        ZarzadcaUzytkownikow zarzadcaUzytkownikow = new ZarzadcaUzytkownikow();
-        ZarzadcaKursow zarzadcaKursow = new ZarzadcaKursow();
-        List<GrupaZapisowa> listGrupZapUzytkownika = zarzadcaUzytkownikow.SprawdzGrupyPrzypisane(idStudenta);
+        List<GrupaZapisowa> listGrupZapUzytkownika = zarzadcaUzytkownikow.SprawdzGrupyPrzypisane(idStudenta, zarzadcaKursow);
         List<PrawoDoZapisu> prawoDoZapisuList = zarzadcaUzytkownikow.SprawdzPrawaDoZapisow(idStudenta);
         List<GrupaZapisowa> grupyDoKtorychMaPrawo = new ArrayList<>();
         for (GrupaZapisowa grupa : listGrupZapUzytkownika) {
@@ -129,7 +140,6 @@ public class Aplikacja {
 
     private void ModyfikacjaBazyKursow() {
         List<GrupaZapisowa> grupaZapisowa = ZwrocGrupy(student.getIdUzytkownika());
-        ZarzadcaKursow zarzadcaKursow = new ZarzadcaKursow();
         List<Kurs> lista = zarzadcaKursow.PobierzKursyZGrupy(grupaZapisowa.get(0));
         gui.WyswietlListeKursow(lista);
         System.out.println("Który kurs chciałbyś zmodyfikować?");
@@ -138,7 +148,7 @@ public class Aplikacja {
         Kurs temp = new Kurs();
         temp = ModyfikacjaKursu(lista.get(wybor));
         lista.remove(wybor);
-        lista.add(wybor,temp);
+        lista.add(wybor, temp);
     }
 
     private Kurs ModyfikacjaKursu(Kurs kurs) {

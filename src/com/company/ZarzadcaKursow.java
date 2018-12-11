@@ -6,6 +6,26 @@ import java.util.List;
 public class ZarzadcaKursow {
 
 	private List<List<GrupaZapisowa>> ListaListGrupZapisowych;
+	private List<Kurs> listaKursow;
+
+	public ZarzadcaKursow() {
+		listaKursow = new ArrayList<Kurs>();
+		Kurs k1 = new Kurs(1,"Analiza 1.1", 1, 201,"C-1",new GodzinaZajec(13,15),90,DzienTygodnia.Poniedzialek,
+				ParzystoscTygodnia.Parzysty,TypKursu.Wyklad,1,6, 2);
+		Kurs k2	= new Kurs(2,"Analiza 1.1", 1, 19,"C-3",new GodzinaZajec(11,15),90,DzienTygodnia.Poniedzialek,
+				ParzystoscTygodnia.Parzysty,TypKursu.Cwiczenia,1,2,3);
+		Kurs k3 = new Kurs(3,"Podstawy Programowania", 2, 203,"C-1",new GodzinaZajec(9,15),90,DzienTygodnia.Wtorek,
+				ParzystoscTygodnia.Nieparzysty,TypKursu.Wyklad,2,4,0);
+		Kurs k4 = new Kurs(4,"Algebra 1", 3, 23,"C-3",new GodzinaZajec(15,15),90,DzienTygodnia.Wtorek,
+				ParzystoscTygodnia.Parzysty,TypKursu.Cwiczenia,1,2,10);
+		Kurs k5 = new Kurs(5,"Miernictwo", 4, 201,"C-1",new GodzinaZajec(11,15),90,DzienTygodnia.Poniedzialek,
+				ParzystoscTygodnia.Parzysty,TypKursu.Wyklad,1,2,0);
+		listaKursow.add(k1);
+		listaKursow.add(k2);
+		listaKursow.add(k3);
+		listaKursow.add(k4);
+		listaKursow.add(k5);
+	}
 
 	public List<GrupaZapisowa> PobierzListeGrupZapisowych(int IDStudenta) {
 		List<GrupaZapisowa> lista = new ArrayList<GrupaZapisowa>();
@@ -23,25 +43,8 @@ public class ZarzadcaKursow {
 	}
 
 	public List<Kurs> PobierzKursyZGrupy(GrupaZapisowa grupa) {
-		List<Kurs> lista = new ArrayList<Kurs>();
 		//tutaj zarzadca pobiera z bazy danych liste kursow z podanej grupy
-
-		Kurs k1 = new Kurs(1,"Analiza 1.1", 1, 201,"C-1",new GodzinaZajec(13,15),90,DzienTygodnia.Poniedzialek,
-				ParzystoscTygodnia.Parzysty,TypKursu.Wyklad,1,6, 2);
-		Kurs k2	= new Kurs(2,"Analiza 1.1", 1, 19,"C-3",new GodzinaZajec(11,15),90,DzienTygodnia.Poniedzialek,
-				ParzystoscTygodnia.Parzysty,TypKursu.Cwiczenia,1,2,3);
-		Kurs k3 = new Kurs(3,"Podstawy Programowania", 2, 203,"C-1",new GodzinaZajec(9,15),90,DzienTygodnia.Wtorek,
-				ParzystoscTygodnia.Nieparzysty,TypKursu.Wyklad,2,4,0);
-		Kurs k4 = new Kurs(4,"Algebra 1", 3, 23,"C-3",new GodzinaZajec(15,15),90,DzienTygodnia.Wtorek,
-				ParzystoscTygodnia.Parzysty,TypKursu.Cwiczenia,1,2,10);
-		Kurs k5 = new Kurs(5,"Miernictwo", 4, 201,"C-1",new GodzinaZajec(11,15),90,DzienTygodnia.Poniedzialek,
-				ParzystoscTygodnia.Parzysty,TypKursu.Wyklad,1,2,0);
-		lista.add(k1);
-		lista.add(k2);
-		lista.add(k3);
-		lista.add(k4);
-		lista.add(k5);
-		return lista;
+		return listaKursow;
 	}
 
 	public boolean SprawdzDostepnoscMiejsc(Kurs kurs) {
@@ -55,6 +58,15 @@ public class ZarzadcaKursow {
 			if(kurs.getListaStudentow().get(i).equals(idStudenta))
 				return true;
 		return false;
+	}
+
+	public List<Kurs> ZwrocListeKursowStudenta(int idStudenta){
+		List<Kurs> lista = new ArrayList<>();
+		for(int i = 0; i < this.listaKursow.size();i++)
+			for(int j=0;j<this.listaKursow.get(i).getListaStudentow().size();j++)
+				if(this.listaKursow.get(i).getListaStudentow().get(j) == idStudenta)
+					lista.add(this.listaKursow.get(i));
+		return lista;
 	}
 
 	public void DodajDoKursu(Kurs kurs, int iDStudenta) {
@@ -84,5 +96,13 @@ public class ZarzadcaKursow {
 
 	public void setListaListGrupZapisowych(List<List<GrupaZapisowa>> listaListGrupZapisowych) {
 		ListaListGrupZapisowych = listaListGrupZapisowych;
+	}
+
+	public List<Kurs> getListaKursow() {
+		return listaKursow;
+	}
+
+	public void setListaKursow(List<Kurs> listaKursow) {
+		this.listaKursow = listaKursow;
 	}
 }
