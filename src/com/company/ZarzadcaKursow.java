@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ZarzadcaKursow {
-
-	private List<List<GrupaZapisowa>> ListaListGrupZapisowych;
+	private List<GrupaZapisowa> listagrupZapisowych;
 	private List<Kurs> listaKursow;
 
 	public ZarzadcaKursow() {
@@ -90,12 +89,12 @@ public class ZarzadcaKursow {
 		return liczba;
 	}
 
-	public List<List<GrupaZapisowa>> getListaListGrupZapisowych() {
-		return ListaListGrupZapisowych;
+	public List<GrupaZapisowa> getListaGrupZapisowych() {
+		return listagrupZapisowych;
 	}
 
-	public void setListaListGrupZapisowych(List<List<GrupaZapisowa>> listaListGrupZapisowych) {
-		ListaListGrupZapisowych = listaListGrupZapisowych;
+	public void setListaListGrupZapisowych(List<GrupaZapisowa> listaGrupZapisowych) {
+		this.listagrupZapisowych = listaGrupZapisowych;
 	}
 
 	public List<Kurs> getListaKursow() {

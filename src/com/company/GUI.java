@@ -51,7 +51,6 @@ public class GUI {
             System.out.println(i + ") - " + lista.get(i).getImie() + lista.get(i).getNazwisko());
     }
 
-
     public void WyswietlOceny() {
     }
 

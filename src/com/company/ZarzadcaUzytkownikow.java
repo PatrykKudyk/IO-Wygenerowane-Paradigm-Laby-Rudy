@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ZarzadcaUzytkownikow {
 
-    private List<List<PrawoDoZapisu>> ListaListPrawDoZapisow;
+    private List<PrawoDoZapisu> ListaListPrawDoZapisow;
 
     public List<GrupaZapisowa> SprawdzGrupyPrzypisane(int IDStudenta, ZarzadcaKursow zarzadcaKursow) {
         //pobranie grup zapisowych dla studenta o id = IDSturenta
@@ -20,11 +20,11 @@ public class ZarzadcaUzytkownikow {
         return lista;
     }
 
-    public List<List<PrawoDoZapisu>> getListaListPrawDoZapisow() {
+    public List<PrawoDoZapisu> getListaListPrawDoZapisow() {
         return ListaListPrawDoZapisow;
     }
 
-    public void setListaListPrawDoZapisow(List<List<PrawoDoZapisu>> listaListPrawDoZapisow) {
+    public void setListaListPrawDoZapisow(List<PrawoDoZapisu> listaListPrawDoZapisow) {
         ListaListPrawDoZapisow = listaListPrawDoZapisow;
     }
 }

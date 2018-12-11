@@ -3,8 +3,6 @@ package com.company;
 import java.util.*;
 
 public class Aplikacja {
-
-    private List<List<GrupaZapisowa>> ListaListGrupZapisowych;
     private GUI gui;
     private Student student;
     private ZarzadcaKursow zarzadcaKursow;
@@ -12,7 +10,7 @@ public class Aplikacja {
 
     public Aplikacja() {
         this.gui = new GUI();
-        this.student = new Student(new ArrayList<Integer>(), 1, TypStudiow.Inzynierskie, 1);
+        this.student = new Student(new ArrayList<>(), 1, TypStudiow.Inzynierskie, 1);
         this.zarzadcaKursow = new ZarzadcaKursow();
         this.zarzadcaUzytkownikow = new ZarzadcaUzytkownikow();
     }
@@ -265,13 +263,5 @@ public class Aplikacja {
         Map<Kurs, Integer> mapa = new HashMap<Kurs, Integer>();
 
         return mapa;
-    }
-
-    public List<List<GrupaZapisowa>> getListaListGrupZapisowych() {
-        return ListaListGrupZapisowych;
-    }
-
-    public void setListaListGrupZapisowych(List<List<GrupaZapisowa>> listaListGrupZapisowych) {
-        ListaListGrupZapisowych = listaListGrupZapisowych;
     }
 }
