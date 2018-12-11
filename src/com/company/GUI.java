@@ -5,33 +5,33 @@ import java.util.List;
 public class GUI {
 
     public void WyswietlGlowneMenu(Uprawnienia uprawnienia) {
-        System.out.println("\t\tMenu Główne Programu");
-        System.out.println("\nCo chciałbyś teraz zrobić?");
+        System.out.println("\t\tMenu Głowne Programu");
+        System.out.println("\nCo chcialbys teraz zrobic?");
         if (uprawnienia == Uprawnienia.Student) {
             System.out.println("[1] - Zapisz na kursy");
-            System.out.println("[2] - Wyświetlić Listę Grup Zapisowych");
-            System.out.println("[3] - Wyświetlić Oceny");
-            System.out.println("[4] - Wyświetlić Plan");
+            System.out.println("[2] - Wyswietlic Liste Grup Zapisowych");
+            System.out.println("[3] - Wyswietlic Oceny");
+            System.out.println("[4] - Wyswietlic Plan");
             System.out.println("[0] - Wyloguj sie");
         } else if (uprawnienia == Uprawnienia.Prowadzacy) {
-            System.out.println("[1] - Wyświetlić Listę Studentów");
-            System.out.println("[2] - Wyświetlić Plan");
+            System.out.println("[1] - Wyswietlic Liste Studentów");
+            System.out.println("[2] - Wyswietlic Plan");
             System.out.println("[0] - Wyloguj sie");
         } else if (uprawnienia == Uprawnienia.Planista) {
-            System.out.println("[1] - Zmodyfikować Bazę Kursów");
-            System.out.println("[2] - Utworzyć Kurs");
+            System.out.println("[1] - Zmodyfikowac Bazę Kursow");
+            System.out.println("[2] - Utworzyc Kurs");
             System.out.println("[0] - Wyloguj sie");
         }
     }
 
     public void WyswietlListeKursow(List<Kurs> lista) {
-        System.out.println("Poniżej znajduje się lista kursów:");
+        System.out.println("Ponizej znajduje sie lista kursow:");
         for (int i = 0; i < lista.size(); i++)
             System.out.println(i + ") " + lista.get(i).toString());
     }
 
     public void WyswietlListeGrupZapisowych(List<GrupaZapisowa> lista) {
-        System.out.println("Poniżej znajduje się lista grup zapisowych:");
+        System.out.println("Ponizej znajduje się lista grup zapisowych:");
         for (int i = 0; i < lista.size(); i++)
             System.out.println(i + " Nazwa - " + lista.get(i).getNazwaGrupy());
     }
@@ -56,10 +56,10 @@ public class GUI {
 
     public void WyswietlPlan(List<Kurs> lista) {
         if (lista.size() == 0) {
-            System.out.println("Twój plan jest pusty.");
+            System.out.println("Twoj plan jest pusty.");
             return;
         }
-        System.out.println("Twój plan jest następujący:");
+        System.out.println("Twoj plan jest nastepujacy:");
         for (int i = 0; i < lista.size(); i++) {
             System.out.println(i + ") " + lista.get(i).toString());
         }

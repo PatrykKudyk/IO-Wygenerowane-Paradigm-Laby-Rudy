@@ -95,7 +95,7 @@ public class Aplikacja {
     private void WyborKursow(GrupaZapisowa grupa) {
         List<Kurs> listaKursow = zarzadcaKursow.PobierzKursyZGrupy(grupa);
         gui.WyswietlListeKursow(listaKursow);
-        System.out.println("\nWybierz kurs, na który chcesz się zapisać: ");
+        System.out.println("\nWybierz kurs, na ktory chcesz sie zapisac: ");
         Scanner input = new Scanner(System.in);
         int wybor = 0;
         while (wybor != 10) {
@@ -103,7 +103,7 @@ public class Aplikacja {
             if (wybor >= 0 && wybor < listaKursow.size())
                 ZapiszNaKurs(listaKursow.get(wybor));
         }
-        gui.WyswietlKomunikat("Brawo! Zapisałeś się na wszystkie kursy!");
+        gui.WyswietlKomunikat("Brawo! Zapisales sie na wszystkie kursy!");
     }
 
     private void ZapiszNaKurs(Kurs kurs) {
@@ -112,13 +112,13 @@ public class Aplikacja {
         if (!zarzadcaKursow.SprawdzCzyZapisanyJuzNaTenKurs(kurs, student.getIdUzytkownika())) {
             if (zarzadcaKursow.SprawdzDostepnoscMiejsc(kurs)) {
                 zarzadcaKursow.DodajDoKursu(kurs, student.getIdUzytkownika());
-                gui.WyswietlKomunikat("Pomyślnie zapisano na kurs!");
+                gui.WyswietlKomunikat("Pomyslnie zapisano na kurs!");
             } else {
                 zarzadcaKursow.DodajDoRezerwy(kurs, student.getIdUzytkownika());
                 gui.WyswietlKomunikat("Dodany do rezerwy.");
             }
         } else
-            gui.WyswietlKomunikat("Jesteś już zapisany na ten kurs!");
+            gui.WyswietlKomunikat("Jestes juz zapisany na ten kurs!");
 
     }
 
@@ -140,13 +140,14 @@ public class Aplikacja {
         List<GrupaZapisowa> grupaZapisowa = ZwrocGrupy(student.getIdUzytkownika());
         List<Kurs> lista = zarzadcaKursow.PobierzKursyZGrupy(grupaZapisowa.get(0));
         gui.WyswietlListeKursow(lista);
-        System.out.println("Który kurs chciałbyś zmodyfikować?");
+        System.out.println("Ktory kurs chcialbys zmodyfikowac?");
         Scanner input = new Scanner(System.in);
         int wybor = input.nextInt();
-        Kurs temp = new Kurs();
+        Kurs temp;
         temp = ModyfikacjaKursu(lista.get(wybor));
         lista.remove(wybor);
         lista.add(wybor, temp);
+
     }
 
     private Kurs ModyfikacjaKursu(Kurs kurs) {
@@ -223,7 +224,7 @@ public class Aplikacja {
                     gui.WyswietlKomunikat("Owocna modyfikacja drogi Panie. Pozdrawiam!");
                     break;
                 default:
-                    gui.WyswietlKomunikat("Zly wybor, YOU DIED!");
+                    gui.WyswietlKomunikat("Zly wybor!");
                     break;
             }
         }
